@@ -760,9 +760,9 @@ function() {
             AUD: "A$",
             MXN: "MXN",
             USD: "$",
-            EUR: "€",
-            GBP: "£",
-            JPY: "¥",
+            EUR: "â‚¬",
+            GBP: "Â£",
+            JPY: "Â¥",
             CAD: "C$"
         },
         strategy: function() {
@@ -819,12 +819,12 @@ function() {
                 name: ["wanelo:product:price", "og:price:amount", "sale_price", "price", "product:price:amount", "eb:price"]
             })) ? o : (e = PostToWanelo.querySelector(".wanelo-save-button"), e && e.getAttribute("data-price") ? e.getAttribute("data-price") : (t = PostToWanelo.querySelector('[itemtype="http://schema.org/Offer"] [itemprop="price"]'), t ? o = t.getAttribute("content") || t.textContent || t.innerText : void 0))
         }
-    }, PostToWanelo.PRICE_PATTERN = /[\$¥€£]\s*(?:\d[\d,]*(?:\.\d+)?)/g, PostToWanelo.ContentScraper.removeExtraCurrency = function(t) {
+    }, PostToWanelo.PRICE_PATTERN = /[\$Â¥â‚¬Â£]\s*(?:\d[\d,]*(?:\.\d+)?)/g, PostToWanelo.ContentScraper.removeExtraCurrency = function(t) {
         var o, e, r;
         if (!t) return "";
         if (r = "", e = 0, t.match(/MXN/)) t = t.slice(3), o = "MXN";
         else {
-            for (; e < t.length;) t[e].match(/[$¥€£]/) && t[e] === t[e + 1] || (r += t[e]), e++;
+            for (; e < t.length;) t[e].match(/[$Â¥â‚¬Â£]/) && t[e] === t[e + 1] || (r += t[e]), e++;
             t = r.slice(1), o = r[0]
         }
         return o + PostToWanelo.ContentScraper.parsePrice(t)
@@ -2223,7 +2223,7 @@ function() {
             price: [".product-price span", ".product-price p"],
             availability: {
                 matches: [
-                    [".error-message p", "We're sorry but the page you wanted isn’t available right now."]
+                    [".error-message p", "We're sorry but the page you wanted isnâ€™t available right now."]
                 ]
             }
         },
@@ -2346,7 +2346,7 @@ function() {
             name: [".title-product", ".product-info h2"],
             availability: {
                 matches: [
-                    ["#btnProductNotInStock", "Tyvärr slutsåld"],
+                    ["#btnProductNotInStock", "TyvÃ¤rr slutsÃ¥ld"],
                     ["#btnProductNotInStock", "Unfortunately out of stock"],
                     ["#btnProductNotInStock", "Dessverre utsolgt"]
                 ]
